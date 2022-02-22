@@ -1,0 +1,25 @@
+Kubernetes
+Containers -Docker
+Container  Orechestration
+PODS, Replica sets, deployment, services
+Networking in Kubernetes
+YAML
+
+CKAD- Certified Kubernetes Application Developer / Certified Kubernetes Admistrator
+Containers, YAML
+Load Balancing,
+Monitoring Tools
+Security.
+
+Kubernetes for Developers:
+-Core concepts
+Multi- Container Pods
+Loggin and Monitoring, Jobs
+Config Maps
+Readiness
+Pod Design
+
+Containers- Docker
+services compatable with the OS - like oracle 32 bit / 64 bit on windows10.
+Webservices- difff versions-due to framework issues
+

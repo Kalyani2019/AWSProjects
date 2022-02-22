@@ -1,0 +1,50 @@
+Dockerfile
+What is the difference between RUN,CMD, ENTRYPOINT
+
+RUN - executes commands in a new layer and creates a new image. It is often used
+for installing packages
+CMD-Sets default command and/or parameters, whcih can be overwritten from command line when docker container runs
+ENTRYPOINT - configures a container that will run as an executable.
+
+When docker runs a container,it runs an image inside it. THis image is usally built by executing docker instructions,
+which add layerson top of existing image or OS distribution. OS distribution is the initial image and every added 
+layer creates a new image.
+
+Final docker image has OS distribution inside and a number of layers on top of it.
+For ex. your image can be built by installing a number of deb packages and your
+application on top of ubuntu 14.04 distribution.
+
+Shell and exec forms:
+All three instructions RUN,CMD,ENTRYPOINT can be specified in shell form or exec form.
+Lets get familiar with forms first. as they cause more confuison than the intructions itself.
+
+
+FROM ubuntu
+RUN apt-get update -y
+RUN apt-get install python3 -y
+CMD echo "Hello world"
+ENTRYPOINT echo "Hello world"
+
+
+Shell form:
+ENTRYPOINT echo "Hello, $name" (<instruction><command>)
+exe form:
+ENTRYPOINT ["/bin/echo","Hello,$name"] (<instruction> ["executable","param1","param2",...]
+
+When instruction is called from shell form it call /bin/sh -c <command>
+ENTRPOINT ["/bin/bash", "-c", "echo Hello, $name"]
+
+Optimizing the install in RUN command:
+Append the instructions so they happen at the same time. 
+RUN apt-get update && apt-get install -y\
+bzr\
+cvs\
+git\
+mercurial\
+Note that apt-get update and install are executed in a single RUN instruction.
+This is done to make sure that the latest package will be installed.
+IF apt-get install were in a separate RUN instruction, then it would reuse a layer added by
+apt-get update which could have been created a long time ago.
+
+
+CMD

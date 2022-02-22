@@ -1,0 +1,26 @@
+YAML Exercises: 
+YAMl is markup language like XML, but no tags.
+1- # is used for comment
+2. Spaces are important as they indicate the attributes
+Ex:1 This is dictionary 
+FRUIT: Apple
+  Price: 20
+  Color: Red
+FRUIT: Banana
+  Price: 10
+  Color: Yellow
+3. Value has to be typed after : and space
+4. Price and Color has same number of spaces in the front. Then they are properites of Fruit. If the spaces change, then the parent of the property changes.
+
+Ex:2 This is List
+FRUITS:
+ - Apple
+ - Banana
+Ex: 3 This is ListofDictinaries
+FRUITS:
+ - Type: Apple
+   Price: 20
+   Color: Red
+ - Type: Banana
+   Price: 10
+   Color: Yellow
